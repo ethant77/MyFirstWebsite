@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe</title>
+</head> 
+<body>
+    <a href="index.html">Home</a>
+    <br>
+    </a>
+    <iframe
+    src="https://www.chatbase.co/chatbot-iframe/W2NGi6iExtsOYhrm9Kdf6"
+    width="100%"
+    style="height: 100%; min-height: 700px"
+    frameborder="0"
+></iframe>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZSgRnHqDZo4?si=JhPUjipOQ_KjfuRZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<br>
+<div class='tableauPlaceholder' id='viz1764009766846' style='position: relative'><noscript><a href='#'><img alt='LLMs ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;MakeoverMonday2024Wk28-TheRiseofLLMs&#47;LLMs&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='MakeoverMonday2024Wk28-TheRiseofLLMs&#47;LLMs' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;MakeoverMonday2024Wk28-TheRiseofLLMs&#47;LLMs&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1764009766846');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1400px';vizElement.style.height='927px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Battle Arena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Aurora Borealis Background Animation */
+        body {
+            background-color: #050505;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .aurora-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(to bottom, #000000 0%, #1a1a2e 100%);
+            overflow: hidden;
+        }
+
+        .aurora {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            opacity: 0.5;
+            background: radial-gradient(circle at 50% 50%, rgba(50, 255, 100, 0.15), transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.15), transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(150, 50, 255, 0.15), transparent 50%);
+            filter: blur(80px);
+            animation: drift 20s infinite alternate linear;
+        }
+
+        .aurora-2 {
+            top: -30%;
+            left: -30%;
+            animation: drift 25s infinite alternate-reverse linear;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 200, 100, 0.1), transparent 60%),
+                        radial-gradient(circle at 30% 70%, rgba(50, 100, 255, 0.1), transparent 50%);
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-30px, 30px) rotate(5deg); }
+        }
+
+        /* Updated Sleek Glass Interface */
+        .liquid-glass {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .liquid-glass:hover {
+            background: rgba(0, 0, 0, 0.5);
+            border-color: rgba(6, 182, 212, 0.3); /* Cyan hint */
+        }
+
+        /* Settings Toggle Button */
+        .settings-btn {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .settings-btn:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.5);
+            transform: rotate(90deg);
+        }
+
+        /* Epic Victory Animation */
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .victory-text {
+            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none; 
+            background: transparent; 
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: #22d3ee; 
+            cursor: pointer;
+            margin-top: -5px; 
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.3);
+            background: #ffffff;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 2px;
+        }
+
+        /* Start Button Pulse */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(34, 211, 238, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+        }
+        .btn-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Cycle Animation */
+        .cycle-ring {
+            animation: spin-ring 12s linear infinite;
+        }
+        .cycle-item {
+            animation: counter-spin 12s linear infinite;
+        }
+        @keyframes spin-ring {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes counter-spin {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* HUD specific transform origin for smooth scaling */
+        #hud-panel {
+            transform-origin: top center;
+            transition: transform 0.1s linear;
+        }
+
+        /* Collapsible Panel Animation */
+        .panel-closed {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            pointer-events: none;
+        }
+        .panel-open {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen overflow-hidden relative selection:bg-cyan-500 selection:text-black">
+
+    <!-- Background -->
+    <div class="aurora-container">
+        <div class="aurora"></div>
+        <div class="aurora aurora-2"></div>
+    </div>
+
+    <!-- Full Screen Canvas -->
+    <canvas id="sim-canvas" class="absolute inset-0 z-0"></canvas>
+
+    <!-- UI Overlay Layer -->
+    <div class="absolute inset-0 z-10 pointer-events-none flex flex-col justify-between p-6">
+        
+        <!-- Top Center: Scoreboard HUD -->
+        <div id="hud-panel" class="pointer-events-auto mx-auto liquid-glass px-8 py-4 flex items-center gap-8 shadow-2xl backdrop-blur-xl transition-transform">
+            <div class="flex items-center gap-4">
+                <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]">🪨</span>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold">Rock</span>
+                    <span id="count-rock" class="text-2xl font-bold font-mono text-red-400">0</span>
+                </div>
+            </div>
+            <div class="w-px h-10 bg-white/10"></div>
+            <div class="flex items-center gap-4">
+                <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]">📄</span>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold">Paper</span>
+                    <span id="count-paper" class="text-2xl font-bold font-mono text-yellow-400">0</span>
+                </div>
+            </div>
+            <div class="w-px h-10 bg-white/10"></div>
+            <div class="flex items-center gap-4">
+                <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">✂️</span>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-white/50 font-bold">Scissors</span>
+                    <span id="count-scissors" class="text-2xl font-bold font-mono text-blue-400">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center: Start Button (Visible only when paused) -->
+        <div id="start-overlay" class="pointer-events-auto absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[3px] transition-opacity duration-500">
+            <button id="btn-start" class="mt-32 btn-pulse px-16 py-6 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-700 text-white font-black text-2xl tracking-[0.2em] hover:scale-105 transition-all shadow-[0_0_50px_rgba(6,182,212,0.4)] border border-white/20 active:scale-95">
+                INITIATE
+            </button>
+        </div>
+
+        <!-- Bottom Left: Collapsible Controls Panel -->
+        <div class="pointer-events-auto absolute bottom-6 left-6 flex flex-col gap-4 items-start z-50">
+            
+            <!-- The Panel -->
+            <div id="controls-panel" class="w-80 liquid-glass p-6 origin-bottom-left panel-closed mb-2">
+                <div class="flex justify-between items-center mb-5 border-b border-white/10 pb-2">
+                    <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">System Config</h2>
+                    <div class="text-[9px] bg-cyan-900/50 text-cyan-200 px-2 py-0.5 rounded border border-cyan-500/30">V3.2</div>
+                </div>
+
+                <!-- Population Sliders -->
+                <div class="space-y-4 text-sm">
+                    <div class="group">
+                        <label class="flex justify-between mb-1.5 text-xs font-medium text-white/70 group-hover:text-white transition-colors">
+                            <span>🪨 Rock Count</span>
+                            <span id="val-r" class="font-mono text-cyan-300">5</span>
+                        </label>
+                        <input type="range" id="input-r" min="3" max="20" value="5" class="w-full">
+                    </div>
+                    <div class="group">
+                        <label class="flex justify-between mb-1.5 text-xs font-medium text-white/70 group-hover:text-white transition-colors">
+                            <span>📄 Paper Count</span>
+                            <span id="val-p" class="font-mono text-cyan-300">5</span>
+                        </label>
+                        <input type="range" id="input-p" min="3" max="20" value="5" class="w-full">
+                    </div>
+                    <div class="group">
+                        <label class="flex justify-between mb-1.5 text-xs font-medium text-white/70 group-hover:text-white transition-colors">
+                            <span>✂️ Scissor Count</span>
+                            <span id="val-s" class="font-mono text-cyan-300">5</span>
+                        </label>
+                        <input type="range" id="input-s" min="3" max="20" value="5" class="w-full">
+                    </div>
+
+                    <div class="h-px bg-white/10 my-4"></div>
+
+                    <!-- Physics & UI Sliders -->
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-4">
+                        <div class="group">
+                            <label class="flex justify-between mb-1.5 text-[10px] uppercase tracking-wider text-white/50 group-hover:text-cyan-400 transition-colors">
+                                Sim Speed
+                            </label>
+                            <input type="range" id="input-speed" min="0.5" max="3" step="0.1" value="1" class="w-full">
+                            <div class="text-right text-[10px] text-cyan-300 font-mono mt-1" id="val-speed">1.0x</div>
+                        </div>
+                        <div class="group">
+                            <label class="flex justify-between mb-1.5 text-[10px] uppercase tracking-wider text-white/50 group-hover:text-cyan-400 transition-colors">
+                                Icon Size
+                            </label>
+                            <input type="range" id="input-size" min="0.5" max="2" step="0.1" value="1" class="w-full">
+                            <div class="text-right text-[10px] text-cyan-300 font-mono mt-1" id="val-size">1.0x</div>
+                        </div>
+                         <!-- HUD Scale Slider -->
+                         <div class="group col-span-2 border-t border-white/10 pt-3 mt-1">
+                            <label class="flex justify-between mb-1.5 text-[10px] uppercase tracking-wider text-white/50 group-hover:text-cyan-400 transition-colors">
+                                UI Scale
+                            </label>
+                            <input type="range" id="input-hud-scale" min="0.5" max="2" step="0.1" value="1" class="w-full">
+                            <div class="text-right text-[10px] text-cyan-300 font-mono mt-1" id="val-hud-scale">1.0x</div>
+                        </div>
+                    </div>
+
+                    <button id="btn-reset" class="w-full mt-4 py-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-[10px] uppercase tracking-[0.2em] transition-all hover:border-cyan-500/50 hover:text-cyan-200">
+                        System Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- The Settings Icon/Button -->
+            <button id="btn-settings-toggle" class="settings-btn" title="Toggle Configuration">
+                <!-- Gear SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Bottom Right: Holo Cycle (Mini) -->
+        <div class="absolute bottom-6 right-6 pointer-events-none opacity-40 scale-75 origin-bottom-right">
+             <div class="relative w-24 h-24 cycle-ring">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 flex items-center justify-center cycle-item">
+                    <span class="text-3xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">🪨</span>
+                </div>
+                <div class="absolute top-[65%] -right-2 w-8 h-8 flex items-center justify-center cycle-item">
+                        <span class="text-3xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">✂️</span>
+                </div>
+                <div class="absolute top-[65%] -left-2 w-8 h-8 flex items-center justify-center cycle-item">
+                    <span class="text-3xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">📄</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Victory Overlay -->
+    <div id="victory-screen" class="absolute inset-0 bg-black/85 backdrop-blur-lg hidden flex-col items-center justify-center z-50 cursor-pointer">
+        <div class="text-8xl mb-6 animate-bounce" id="winner-icon">🏆</div>
+        <h2 class="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter victory-text text-center px-4" id="winner-text">
+            VICTORY
+        </h2>
+        <p class="text-cyan-400 mt-8 text-sm tracking-[0.5em] uppercase border-b border-cyan-500/30 pb-2">Tap to Reboot</p>
+    </div>
+
+    <script>
+        // --- Configuration & State ---
+        const canvas = document.getElementById('sim-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // DOM Elements
+        const els = {
+            hud: document.getElementById('hud-panel'),
+            controlsPanel: document.getElementById('controls-panel'),
+            btnSettings: document.getElementById('btn-settings-toggle'),
+            rock: document.getElementById('count-rock'),
+            paper: document.getElementById('count-paper'),
+            scissors: document.getElementById('count-scissors'),
+            victory: document.getElementById('victory-screen'),
+            winnerText: document.getElementById('winner-text'),
+            winnerIcon: document.getElementById('winner-icon'),
+            startOverlay: document.getElementById('start-overlay'),
+            btnStart: document.getElementById('btn-start'),
+            btnReset: document.getElementById('btn-reset'),
+            inputs: {
+                r: document.getElementById('input-r'),
+                p: document.getElementById('input-p'),
+                s: document.getElementById('input-s'),
+                speed: document.getElementById('input-speed'),
+                size: document.getElementById('input-size'),
+                hudScale: document.getElementById('input-hud-scale')
+            },
+            displays: {
+                r: document.getElementById('val-r'),
+                p: document.getElementById('val-p'),
+                s: document.getElementById('val-s'),
+                speed: document.getElementById('val-speed'),
+                size: document.getElementById('val-size'),
+                hudScale: document.getElementById('val-hud-scale')
+            }
+        };
+
+        // --- Toggle Settings Logic ---
+        let isSettingsOpen = false;
+        els.btnSettings.addEventListener('click', () => {
+            isSettingsOpen = !isSettingsOpen;
+            if (isSettingsOpen) {
+                els.controlsPanel.classList.remove('panel-closed');
+                els.controlsPanel.classList.add('panel-open');
+                els.btnSettings.style.transform = "rotate(180deg)";
+                els.btnSettings.style.background = "rgba(6, 182, 212, 0.2)";
+            } else {
+                els.controlsPanel.classList.remove('panel-open');
+                els.controlsPanel.classList.add('panel-closed');
+                els.btnSettings.style.transform = "rotate(0deg)";
+                els.btnSettings.style.background = "";
+            }
+        });
+
+        // Constants
+        const TYPE_ROCK = 0;
+        const TYPE_PAPER = 1;
+        const TYPE_SCISSORS = 2;
+        const EMOJIS = ['🪨', '📄', '✂️'];
+        const COLORS = ['#e74c3c', '#f1c40f', '#3498db']; 
+        const BASE_RADIUS = 25;
+        const BASE_SPEED = 2.5;
+
+        let entities = [];
+        let animationId;
+        let isRunning = false;
+        let isGameOver = false;
+
+        // --- Helper Classes ---
+
+        class Entity {
+            constructor(type, x, y) {
+                this.type = type;
+                this.x = x;
+                this.y = y;
+                
+                const angle = Math.random() * Math.PI * 2;
+                this.vx = Math.cos(angle);
+                this.vy = Math.sin(angle);
+                this.scale = 1; 
+                
+                // Drift velocity for setup phase
+                this.driftVx = (Math.random() - 0.5) * 0.2;
+                this.driftVy = (Math.random() - 0.5) * 0.2;
+            }
+
+            get radius() {
+                return BASE_RADIUS * parseFloat(els.inputs.size.value);
+            }
+
+            get speed() {
+                return BASE_SPEED * parseFloat(els.inputs.speed.value);
+            }
+
+            update(width, height) {
+                let actualVx, actualVy;
+
+                if (isRunning) {
+                    actualVx = this.vx * this.speed;
+                    actualVy = this.vy * this.speed;
+                } else {
+                    // Setup Phase: Slow drift
+                    actualVx = this.driftVx;
+                    actualVy = this.driftVy;
+                }
+
+                this.x += actualVx;
+                this.y += actualVy;
+
+                // Wall Bounce
+                const r = this.radius;
+                
+                if (this.x - r < 0) {
+                    this.x = r;
+                    this.vx *= -1;
+                    this.driftVx *= -1;
+                } else if (this.x + r > width) {
+                    this.x = width - r;
+                    this.vx *= -1;
+                    this.driftVx *= -1;
+                }
+
+                if (this.y - r < 0) {
+                    this.y = r;
+                    this.vy *= -1;
+                    this.driftVy *= -1;
+                } else if (this.y + r > height) {
+                    this.y = height - r;
+                    this.vy *= -1;
+                    this.driftVy *= -1;
+                }
+
+                if (this.scale > 1) this.scale -= 0.05;
+            }
+
+            draw(ctx) {
+                const r = this.radius;
+                
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.scale(this.scale, this.scale);
+
+                // Glow effect
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = COLORS[this.type];
+
+                // Background
+                ctx.beginPath();
+                ctx.arc(0, 0, r, 0, Math.PI * 2);
+                ctx.fillStyle = COLORS[this.type];
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255,255,255,0.8)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.closePath();
+                
+                ctx.shadowBlur = 0; // Reset shadow for text
+
+                // Emoji
+                ctx.font = `${r * 1.2}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(EMOJIS[this.type], 0, r * 0.1);
+
+                ctx.restore();
+            }
+        }
+
+        // --- Core Logic ---
+
+        function initGame() {
+            isRunning = false;
+            isGameOver = false;
+            
+            els.victory.classList.add('hidden');
+            els.victory.classList.remove('flex');
+            els.startOverlay.style.opacity = '1';
+            els.startOverlay.style.pointerEvents = 'auto';
+            
+            respawnEntities();
+            
+            if (animationId) cancelAnimationFrame(animationId);
+            loop();
+        }
+
+        function startGame() {
+            isRunning = true;
+            els.startOverlay.style.opacity = '0';
+            els.startOverlay.style.pointerEvents = 'none';
+        }
+
+        function respawnEntities() {
+            // Only allow respawning if game hasn't ended or if we are resetting
+            if (isGameOver && isRunning) return;
+
+            entities = [];
+            spawnType(TYPE_ROCK, parseInt(els.inputs.r.value));
+            spawnType(TYPE_PAPER, parseInt(els.inputs.p.value));
+            spawnType(TYPE_SCISSORS, parseInt(els.inputs.s.value));
+            updateStats();
+        }
+
+        function spawnType(type, count) {
+            for (let i = 0; i < count; i++) {
+                let x, y, safe;
+                let attempts = 0;
+                const r = BASE_RADIUS * 2; 
+                
+                do {
+                    x = r + Math.random() * (canvas.width - r * 2);
+                    y = r + Math.random() * (canvas.height - r * 2);
+                    safe = true;
+                    for (let e of entities) {
+                        const dx = e.x - x;
+                        const dy = e.y - y;
+                        if (Math.sqrt(dx*dx + dy*dy) < r * 2) {
+                            safe = false;
+                            break;
+                        }
+                    }
+                    attempts++;
+                } while (!safe && attempts < 50);
+
+                entities.push(new Entity(type, x, y));
+            }
+        }
+
+        function resolveCollisions() {
+            for (let i = 0; i < entities.length; i++) {
+                for (let j = i + 1; j < entities.length; j++) {
+                    const a = entities[i];
+                    const b = entities[j];
+
+                    const dx = b.x - a.x;
+                    const dy = b.y - a.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const minDist = a.radius + b.radius;
+
+                    if (dist < minDist) {
+                        // Static Resolution
+                        const angle = Math.atan2(dy, dx);
+                        const overlap = minDist - dist;
+                        const moveX = (Math.cos(angle) * overlap) / 2;
+                        const moveY = (Math.sin(angle) * overlap) / 2;
+
+                        a.x -= moveX;
+                        a.y -= moveY;
+                        b.x += moveX;
+                        b.y += moveY;
+
+                        // Battle Logic (Only when running)
+                        if (isRunning && a.type !== b.type) {
+                            if ((a.type === 0 && b.type === 2) || 
+                                (a.type === 1 && b.type === 0) || 
+                                (a.type === 2 && b.type === 1)) {
+                                b.type = a.type;
+                                a.scale = 1.3;
+                            } else {
+                                a.type = b.type;
+                                b.scale = 1.3;
+                            }
+                        }
+
+                        // Physics
+                        const nx = dx / dist;
+                        const ny = dy / dist;
+                        const tx = -ny;
+                        const ty = nx;
+
+                        const dpTan1 = a.vx * tx + a.vy * ty;
+                        const dpTan2 = b.vx * tx + b.vy * ty;
+
+                        const dpNorm1 = a.vx * nx + a.vy * ny;
+                        const dpNorm2 = b.vx * nx + b.vy * ny;
+
+                        // Drift Physics (for setup phase)
+                        const ddpTan1 = a.driftVx * tx + a.driftVy * ty;
+                        const ddpTan2 = b.driftVx * tx + b.driftVy * ty;
+                        const ddpNorm1 = a.driftVx * nx + a.driftVy * ny;
+                        const ddpNorm2 = b.driftVx * nx + b.driftVy * ny;
+
+
+                        // Elastic Collision (Momentum swap)
+                        const mom1 = dpNorm2; 
+                        const mom2 = dpNorm1;
+                        const dmom1 = ddpNorm2;
+                        const dmom2 = ddpNorm1;
+
+                        a.vx = tx * dpTan1 + nx * mom1;
+                        a.vy = ty * dpTan1 + ny * mom1;
+                        b.vx = tx * dpTan2 + nx * mom2;
+                        b.vy = ty * dpTan2 + ny * mom2;
+
+                        a.driftVx = tx * ddpTan1 + nx * dmom1;
+                        a.driftVy = ty * ddpTan1 + ny * dmom1;
+                        b.driftVx = tx * ddpTan2 + nx * dmom2;
+                        b.driftVy = ty * ddpTan2 + ny * dmom2;
+                    }
+                }
+            }
+        }
+
+        function checkWinCondition(counts) {
+            if (!isRunning) return; // Don't end game during setup
+            
+            const total = entities.length;
+            if (total === 0) return;
+
+            if (counts[TYPE_ROCK] === total) endGame(TYPE_ROCK);
+            else if (counts[TYPE_PAPER] === total) endGame(TYPE_PAPER);
+            else if (counts[TYPE_SCISSORS] === total) endGame(TYPE_SCISSORS);
+        }
+
+        function endGame(winnerType) {
+            isGameOver = true;
+            isRunning = false;
+            
+            let winColor, winText;
+            if (winnerType === TYPE_ROCK) {
+                winColor = 'text-red-500';
+                winText = "ROCK SUPREMACY";
+            } else if (winnerType === TYPE_PAPER) {
+                winColor = 'text-yellow-400';
+                winText = "PAPER DOMINATION";
+            } else {
+                winColor = 'text-blue-500';
+                winText = "SCISSORS VICTORY";
+            }
+
+            els.winnerText.className = `text-5xl md:text-8xl font-black uppercase tracking-tighter victory-text text-center px-4 ${winColor}`;
+            els.winnerText.innerText = winText;
+            els.winnerIcon.innerText = EMOJIS[winnerType];
+
+            els.victory.classList.remove('hidden');
+            els.victory.classList.add('flex');
+        }
+
+        function updateStats() {
+            const counts = [0, 0, 0];
+            entities.forEach(e => counts[e.type]++);
+
+            els.rock.innerText = counts[0];
+            els.paper.innerText = counts[1];
+            els.scissors.innerText = counts[2];
+
+            if (!isGameOver) checkWinCondition(counts);
+        }
+
+        function loop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            entities.forEach(e => e.update(canvas.width, canvas.height));
+            resolveCollisions();
+            entities.forEach(e => e.draw(ctx));
+            
+            updateStats();
+
+            animationId = requestAnimationFrame(loop);
+        }
+
+        // --- Event Listeners ---
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            if(!isRunning && !isGameOver) respawnEntities();
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        // Inputs
+        ['r', 'p', 's'].forEach(key => {
+            els.inputs[key].addEventListener('input', (e) => {
+                els.displays[key].innerText = e.target.value;
+                if(!isRunning) respawnEntities(); // Live update in setup
+            });
+        });
+
+        ['speed', 'size'].forEach(key => {
+            els.inputs[key].addEventListener('input', (e) => {
+                els.displays[key].innerText = e.target.value + 'x';
+            });
+        });
+
+        // HUD Scale
+        els.inputs.hudScale.addEventListener('input', (e) => {
+            const scale = e.target.value;
+            els.displays.hudScale.innerText = scale + 'x';
+            els.hud.style.transform = `scale(${scale})`;
+        });
+
+        els.btnStart.addEventListener('click', startGame);
+        els.btnReset.addEventListener('click', initGame);
+        els.victory.addEventListener('click', initGame);
+
+        // Initial Start
+        resizeCanvas();
+        initGame();
+
+    </script>
+</body>
+</html>
